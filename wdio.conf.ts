@@ -8,11 +8,14 @@ export const config: WebdriverIO.Config = {
     capabilities: [{
         maxInstances: 5,
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
+        "goog:chromeOptions": {
+            args: ["--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage"]
+        }
     }],
-    logLevel: 'info',
+    logLevel: 'silent',
     bail: 0,
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://www.expedia.com.au/',
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
@@ -20,7 +23,7 @@ export const config: WebdriverIO.Config = {
     framework: 'cucumber',
     reporters: ['spec'],
     cucumberOpts: {
-        require: ['./features/step-definitions/steps.ts'],
+        require: ['./step-definitions/*.ts'],
         backtrace: false,
         requireModule: [],
         dryRun: false,
