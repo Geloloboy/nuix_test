@@ -15,7 +15,7 @@ export const config: WebdriverIO.Config = {
     }],
     logLevel: 'silent',
     bail: 0,
-    baseUrl: 'https://www.expedia.com.au/',
+    baseUrl: 'https://www.booking.com/',
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,

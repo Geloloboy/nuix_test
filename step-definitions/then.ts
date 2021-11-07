@@ -1,10 +1,14 @@
 import { Then } from "@cucumber/cucumber";
-import { verifyMemberInfoExists } from "../page-objects/home.page";
-import { verifyIncorrectCredentials } from "../page-objects/signIn.page";
+import {
+  incorrectEmailAlert,
+  incorrectPasswordAlert,
+} from "../page-objects/signIn.page";
 
 Then(
-  /^I see an incorrect credentials error message$/,
-  verifyIncorrectCredentials
+  /^I see that the '(email|password)' alert has the following error message: '(.*)'$/,
+  function (fieldName: string, erroMessage: string) {
+    const targetElement =
+      fieldName === "email" ? incorrectEmailAlert : incorrectPasswordAlert;
+    expect($(targetElement)).toHaveText(erroMessage);
+  }
 );
-
-Then(/^I am able to see my member info$/, verifyMemberInfoExists);
