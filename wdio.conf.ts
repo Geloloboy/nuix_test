@@ -1,6 +1,6 @@
 export const config: WebdriverIO.Config = {
     specs: [
-        './features/**/authentication.feature'
+        './features/**/*.feature'
     ],
     exclude: [
     ],
@@ -37,7 +37,7 @@ export const config: WebdriverIO.Config = {
         timeout: 60000,
         ignoreUndefinedDefinitions: false
     },
-    afterStep: async (step, scenario, result) => {
-        await browser.pause(2000)
+    afterStep: async () => {
+        await browser.pause(1000)
     },
 }
