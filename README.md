@@ -27,10 +27,14 @@ Below are some items to name a few:
 
 ### How would you structure your tests and test suite? Why?
 I will use page object model and have a file per page (i.e. Booking, Car Rentals, Attractions, Airport Taxis)
+
 I'd also create a different file for shared components (i.e. Header, Calendars)
+
 For the test suite, it would be on a per page as well since it follows how the users would use the site and be more intuitive for whoever is working on it
 
 ### Assuming you had access to the source describe what other ways you would improve on the framework and testing of the application? Explain how you would implement it (don’t have to implement it). Think big as this is to be an enterprise solution
 I would create a whitelisted environment (dev) where I can run my test where the bot security measures are not active.
+
 I'd also probably add a few more aria on different buttons so that I can easily hook my tests on to it.
+
 I'm also going to push to move most of the tests on a level lower than the UI tests to reduce time and increase reliability. This will probably be done by rendering a specific page via virtual dom's (React's testing library for example). Other scenarios like navigation and E2E scenarios can still be done on the UI level.
