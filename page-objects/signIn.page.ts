@@ -5,6 +5,7 @@ const passwordInput = "input[data-ga-label='password']";
 export const incorrectPasswordAlert = "#password-note";
 
 const submitButton = "button[type='submit']";
+const createPasswordHeader = "h1=Create password";
 
 export const openSignInPage = async () => {
   await browser.url("https://account.booking.com/sign-in");
@@ -20,4 +21,8 @@ export const submitCredential = async () => {
 
 export const enterPassword = async (password: string) => {
   await $(passwordInput).setValue(password);
+};
+
+export const verifyCreatePasswordScreenShown = async () => {
+  await $(createPasswordHeader).waitForExist({ timeout: 5000 });
 };

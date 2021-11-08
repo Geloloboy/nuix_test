@@ -3,9 +3,15 @@ const locationInput = "input#ss";
 const calendarOpenEl = "[data-component='search/dates/date-field-select']";
 const submitBookingDetailsButton = "button.sb-searchbox__button ";
 const nextCalendarScreen = "[data-bui-ref='calendar-next']";
+const profileMenuLink =
+  "[aria-describedby='profile-menu-trigger--title profile-menu-trigger--content']";
 
 export const openHomePage = async () => {
   await browser.url("");
+};
+
+export const verifyLoginIsSuccessful = async () => {
+  await $(profileMenuLink).waitForExist({ timeout: 20000 });
 };
 
 export const enterLocation = async (desiredLocation: string) => {
