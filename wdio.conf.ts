@@ -1,12 +1,12 @@
 export const config: WebdriverIO.Config = {
     specs: [
-        './features/**/*.feature'
+        './features/**/authentication.feature'
     ],
     exclude: [
     ],
     maxInstances: 10,
     capabilities: [{
-        maxInstances: 5,
+        maxInstances: 1,
         browserName: 'chrome',
         acceptInsecureCerts: true,
         "goog:chromeOptions": {
@@ -36,5 +36,8 @@ export const config: WebdriverIO.Config = {
         tagExpression: '',
         timeout: 60000,
         ignoreUndefinedDefinitions: false
+    },
+    afterStep: async (step, scenario, result) => {
+        await browser.pause(2000)
     },
 }

@@ -9,10 +9,11 @@ import {
 
 Then(
   /^I see that the '(email|password)' alert has the following error message: '(.*)'$/,
-  function (fieldName: string, erroMessage: string) {
+  async (fieldName: string, erroMessage: string) => {
     const targetElement =
       fieldName === "email" ? incorrectEmailAlert : incorrectPasswordAlert;
-    expect($(targetElement)).toHaveText(erroMessage);
+    const targetElementText = await $(targetElement).getText()
+    expect(targetElementText).toEqual(erroMessage);
   }
 );
 

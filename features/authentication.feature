@@ -8,7 +8,7 @@ Feature: User Authentication
     
     Scenario: Invalid Password
         Given I open the sign in page
-        When I enter 'valid.email@address.com' as my email address
+        When I enter 'sample@gmail.com' as my email address
         And I submit the entered credential
         And I enter 'invalid password' as my password
         And I submit the entered credential
