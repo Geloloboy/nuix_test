@@ -1,3 +1,5 @@
+import { carRentalsLink } from "./header";
+
 const locationInput = "input#ss";
 
 const calendarOpenEl = "[data-component='search/dates/date-field-select']";
@@ -8,6 +10,10 @@ const profileMenuLink =
 
 export const openHomePage = async () => {
   await browser.url("");
+};
+
+export const navigateToCarRentalsPage = async () => {
+  await $(carRentalsLink).click();
 };
 
 export const verifyLoginIsSuccessful = async () => {

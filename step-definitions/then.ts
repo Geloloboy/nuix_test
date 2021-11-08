@@ -1,4 +1,5 @@
 import { Then } from "@cucumber/cucumber";
+import { verifyCarRentalResultsLocation } from "../page-objects/carRentals.page";
 import { verifyLoginIsSuccessful } from "../page-objects/home.page";
 import {
   incorrectEmailAlert,
@@ -23,4 +24,11 @@ Then(
 Then(
   /^I see that the user is logged in successfully$/,
   verifyLoginIsSuccessful
+);
+
+Then(
+  /^I see car search results for '(.*)'$/,
+  async (expectedLocation: string) => {
+    verifyCarRentalResultsLocation(expectedLocation);
+  }
 );
